@@ -5,6 +5,11 @@ async function GetCartData() {
   return await data;
 }
 
+async function GetCartDataById(id) {
+  let data = cart.findById(id);
+  return await data;
+}
+
 //===================================******* Post Data *********=================================
 
 async function CreateData(data) {
@@ -32,4 +37,4 @@ async function DeleteData(id) {
   return DeletedData;
 }
 
-module.exports = { GetCartData, CreateData, UpdateData, DeleteData };
+module.exports = { GetCartData,GetCartDataById, CreateData, UpdateData, DeleteData };

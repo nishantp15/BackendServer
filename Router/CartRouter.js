@@ -1,13 +1,27 @@
 
 const express = require('express');
 
-const{GetCartData,CreateData, UpdateData, DeleteData} = require('../Controllers/CartControllers')
+const{GetCartData,GetCartDataById, CreateData, UpdateData, DeleteData} = require('../Controllers/CartControllers')
 
 const Cartrouter = express.Router();
 
 Cartrouter.get('/',async(req,res)=>{
     try{
         const getData = await GetCartData();
+        res.send(getData); 
+    }
+    catch(err){
+        res.status(404).send({
+                status:"Failure",
+                error:err.message
+            })
+        console.error(err);
+    }
+})
+
+Cartrouter.get('/id',async(req,res)=>{
+    try{
+        const getData = await GetCartDataById(req.params.id);
         res.send(getData); 
     }
     catch(err){
