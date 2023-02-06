@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const cart = mongoose.model("cart", {
+const cart = mongoose.model("carts", {
     id : Number,
     uniqueId : Number,
     category : String,

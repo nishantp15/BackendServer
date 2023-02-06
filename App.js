@@ -5,6 +5,7 @@ const Cartrouter = require('./Router/CartRouter')
 const ConnectToDB = require('./Database/ConnectToDB');
 const app = express();
 
+console.log(8)
 app.use(express.json());
 app.use(logRequest);
 app.use(cors());
@@ -15,9 +16,9 @@ async function logRequest(req,res,next){
     console.log(new Date, req.method, req.url);
     next();
 }
-
+let port = process.env.PORT || 3008
 ConnectToDB().then(()=>{
-    app.listen(3030,()=>{
-        console.log('Listening on 3030')
+    app.listen(port,()=>{
+        console.log(`Listening on ${port}`)
     })
 }).catch();
