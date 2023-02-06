@@ -27,7 +27,7 @@ async function UpdateData(id, data) {
 }
 
 async function DeleteData(id) {
-  const DeletedData = await movies.findById(id);
+  const DeletedData = await cart.findById(id);
   await cart.findByIdAndDelete(id);
   return DeletedData;
 }
