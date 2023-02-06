@@ -7,6 +7,7 @@ const app = express();
 
 console.log(8)
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(logRequest);
 app.use(cors());
 // app.use('/products',router);
