@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 // const router = require('./Router/ProductsRouter');
+const AuthRouter = require('./Router/userRoutes');
 const Cartrouter = require('./Router/CartRouter')
 const ConnectToDB = require('./Database/ConnectToDB');
 const app = express();
@@ -12,6 +13,7 @@ app.use(logRequest);
 app.use(cors());
 // app.use('/products',router);
 app.use('/cart',Cartrouter);
+app.use('/users',AuthRouter);
 
 async function logRequest(req,res,next){
     console.log(new Date, req.method, req.url);
