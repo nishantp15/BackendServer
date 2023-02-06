@@ -19,7 +19,7 @@ Cartrouter.get('/',async(req,res)=>{
     }
 })
 
-Cartrouter.get('/id',async(req,res)=>{
+Cartrouter.get('/:id',async(req,res)=>{
     try{
         const getData = await GetCartDataById(req.params.id);
         res.send(getData); 
